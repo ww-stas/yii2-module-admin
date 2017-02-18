@@ -1,0 +1,23 @@
+{
+    "name": "diezz/yii2-module-admin",
+    "description": "Admin module with AdminLTE template for the Yii2 Framework",
+    "type": "package",
+    "require": {
+        "yiisoft/yii2": "2.*",
+        "yiisoft/yii2-bootstrap": "^2.0",
+        "almasaeed2010/adminlte": "^2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stanislav Shadskiy",
+            "email": "diezz.tsk@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Diezz\\ModuleAdmin": "src/"
+        }
+    }
+}
