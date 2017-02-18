@@ -56,6 +56,13 @@ class AdminView extends View
      */
     public $companyName = 'Company';
     /**
+     * Short company name
+     *
+     * @var string
+     */
+    public $shotCompanyName = '';
+
+    /**
      * Asset bundle class-name using by default for admin view.
      *
      * @var string

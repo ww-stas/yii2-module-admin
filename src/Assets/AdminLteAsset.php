@@ -10,7 +10,11 @@ use yii\web\JqueryAsset;
 
 class AdminLteAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/adminlte';
+    public $sourcePath = '@vendor/almasaeed2010/adminlte';
+    /**
+     * @var string
+     */
+    public $skin = '_all-skins';
 
     public $css = [
         'dist/css/AdminLTE.min.css',
@@ -32,9 +36,6 @@ class AdminLteAsset extends AssetBundle
         JqueryAsset::class,
         BootstrapPluginAsset::class,
     ];
-
-    public $skin = '_all-skins';
-
 
     public function init()
     {

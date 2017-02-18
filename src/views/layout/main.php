@@ -35,8 +35,8 @@ if (!isset($this->subTitle)) {
         <header class="main-header">
 
             <a href="/admin" class="logo">
-                <span class="logo-mini"><b>B</b>B</span>
-                <span class="logo-lg"><b>moBBea</b></span>
+                <span class="logo-mini"><b><?php echo $this->shotCompanyName ?></b></span>
+                <span class="logo-lg"><b><?php echo $this->companyName ?></b></span>
             </a>
 
             <nav class="navbar navbar-static-top">
@@ -73,9 +73,8 @@ if (!isset($this->subTitle)) {
             <div class="pull-right hidden-xs">
                 <b>Version</b> <?php echo Yii::$app->version ?>
             </div>
-            <strong>Copyright &copy; 2017 <?php echo $this->companyName?></strong> All
-            rights
-            reserved.
+            <strong>Copyright &copy; <?php echo (new \DateTime())->format('Y') ?> <?php echo $this->companyName ?></strong>
+            All rights reserved.
         </footer>
 
         <div class="control-sidebar-bg"></div>
