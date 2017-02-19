@@ -12,7 +12,8 @@ use yii\helpers\Html;
  *
  * @package app\modules\admin\widgets
  */
-class idebarMenuItem extends Widget{
+class SidebarMenuItem extends Widget
+{
     /**
      * Css-class of icon for the menu item, for example "fa fa-envelope".
      *
