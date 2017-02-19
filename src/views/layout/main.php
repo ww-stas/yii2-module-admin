@@ -23,10 +23,6 @@ if (!isset($this->subTitle)) {
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body class="hold-transition <?php echo $this->skin ?>">
     <?php $this->beginBody() ?>
@@ -34,7 +30,7 @@ if (!isset($this->subTitle)) {
 
         <header class="main-header">
 
-            <a href="/admin" class="logo">
+            <a href="<?php echo $this->homeUrl ?>" class="logo">
                 <span class="logo-mini"><b><?php echo $this->shotCompanyName ?></b></span>
                 <span class="logo-lg"><b><?php echo $this->companyName ?></b></span>
             </a>
@@ -58,10 +54,14 @@ if (!isset($this->subTitle)) {
                     <?php echo $this->title ?>
                     <small><?php echo $this->subTitle ?></small>
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ol>
+                <?php echo \yii\widgets\Breadcrumbs::widget([
+                    'tag'      => 'ol',
+                    'homeLink' => [
+                        'label' => 'Home',
+                        'url'   => $this->homeUrl,
+                    ],
+                    'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
             </section>
 
             <section class="content">
@@ -73,7 +73,7 @@ if (!isset($this->subTitle)) {
             <div class="pull-right hidden-xs">
                 <b>Version</b> <?php echo Yii::$app->version ?>
             </div>
-            <strong>Copyright &copy; <?php echo (new \DateTime())->format('Y') ?> <?php echo $this->companyName ?></strong>
+            <strong>Copyright &copy; <?php echo date('Y') ?> <?php echo $this->companyName ?></strong>
             All rights reserved.
         </footer>
 

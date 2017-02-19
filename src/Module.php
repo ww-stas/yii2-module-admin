@@ -21,6 +21,10 @@ class Module extends \yii\base\Module
      */
     public $layout = '@admin/views/layout/main.php';
     /**
+     * @var null|string
+     */
+    public $loginUrl = null;
+    /**
      * Имя класса или конфигурация для дефолтного класса View для модуля.
      *
      * @var
@@ -36,6 +40,10 @@ class Module extends \yii\base\Module
 
         // custom initialization code goes here
         \Yii::setAlias('@admin', __DIR__);
+
+        if (null !== $this->loginUrl) {
+            \Yii::$app->getUser()->loginUrl = $this->loginUrl;
+        }
     }
 
     /**

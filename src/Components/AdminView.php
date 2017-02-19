@@ -61,6 +61,12 @@ class AdminView extends View
      * @var string
      */
     public $shotCompanyName = '';
+    /**
+     * Home URL.
+     *
+     * @var string
+     */
+    public $homeUrl = '/admin';
 
     /**
      * Asset bundle class-name using by default for admin view.

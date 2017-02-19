@@ -3,6 +3,7 @@
 namespace Diezz\ModuleAdmin\Controllers;
 
 use yii\base\InvalidRouteException;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 /**
@@ -13,6 +14,31 @@ use yii\web\Controller;
  */
 class AdminController extends Controller
 {
+    /**
+     *
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow'   => true,
+                        'actions' => ['login'],
+                        'roles'   => ['?'],
+                    ],
+                    [
+                        'allow'   => true,
+                        'actions' => ['logout'],
+                        'roles'   => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Give ability of configure view to the module class.
      *
