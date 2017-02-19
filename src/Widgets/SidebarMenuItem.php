@@ -12,8 +12,7 @@ use yii\helpers\Html;
  *
  * @package app\modules\admin\widgets
  */
-class SidebarMenuItem extends Widget
-{
+class idebarMenuItem extends Widget{
     /**
      * Css-class of icon for the menu item, for example "fa fa-envelope".
      *
@@ -87,7 +86,7 @@ class SidebarMenuItem extends Widget
      */
     protected function renderItem()
     {
-        if (false === $this->visible) {
+        if (false === $this->active) {
             return '';
         }
 
