@@ -23,6 +23,15 @@ return [
            'view'          => [
                'class'             => AdminView::class,
                'skin'              => AdminView::SKIN_RED,
+               // You may specify an extra assets
+               'extraAssets'       => [
+                    // Like class name:
+                    ExtraAsset::class,
+                    // Or like config aray:
+                    [
+                        'class' => AnotherAsset::class,
+                    ],
+               ],
                // Menu config
                'sidebarMenuConfig' => [
                    'menuItems' => [

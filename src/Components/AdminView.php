@@ -3,6 +3,7 @@
 namespace Diezz\ModuleAdmin\Components;
 
 use Diezz\ModuleAdmin\Assets\AdminLteAsset;
+use yii\base\InvalidConfigException;
 use yii\web\View;
 
 /**
@@ -67,6 +68,16 @@ class AdminView extends View
      * @var string
      */
     public $homeUrl = '/admin';
+    /**
+     * An array of extra asset. Each asset can be specified one of the following format:
+     *
+     * - a string thar represent a class name of extra asset;
+     * - an array that must contain a class key and may contain other settings of asset bundle.
+     *
+     * @see BaseYii::createObject()
+     * @var array
+     */
+    public $extraAssets = [];
 
     /**
      * Asset bundle class-name using by default for admin view.
@@ -82,9 +93,45 @@ class AdminView extends View
      */
     public function init()
     {
-        $assetConfig = $this->getAssetConfig();
+        $this->registerAdminAsset();
+        $this->registerExtraAssets();
+    }
+
+    /**
+     * Register a main admin asset.
+     *
+     * @return void
+     */
+    protected function registerAdminAsset()
+    {
+        $assetConfig = $this->getAdminAssetConfig();
+        $this->registerAsset($assetConfig);
+    }
+
+    /**
+     * Register an extra assets.
+     *
+     * @return void
+     */
+    protected function registerExtraAssets()
+    {
+        foreach ($this->extraAssets as $asset) {
+            $assetConfig = $this->getExtraAssetConfig($asset);
+            $this->registerAsset($assetConfig);
+        }
+    }
+
+    /**
+     * Register an asset bundle in view.
+     *
+     * @param array $assetConfig config of asset bundle.
+     *
+     * @return void
+     */
+    protected function registerAsset(array $assetConfig)
+    {
         $assetClassName = $assetConfig['class'];
-        $this->assetManager->bundles[$assetClassName] = $this->getAssetConfig();
+        $this->assetManager->bundles[$assetClassName] = $assetConfig;
         if (method_exists($assetClassName, 'register')) {
             call_user_func([$assetClassName, 'register'], $this);
         }
@@ -95,7 +142,7 @@ class AdminView extends View
      *
      * @return array
      */
-    protected function getAssetConfig()
+    protected function getAdminAssetConfig()
     {
         $config = $this->assetBundleConfig;
         if (null === $config) {
@@ -113,4 +160,28 @@ class AdminView extends View
 
         return $config;
     }
+
+    /**
+     * Prepare and return an extra asset config.
+     *
+     * @param string|array $asset extra asset config.
+     *
+     * @throws InvalidConfigException if the configuration is invalid.
+     * @return array
+     */
+    protected function getExtraAssetConfig($asset)
+    {
+        $config = [];
+        if (is_string($asset)) {
+            $config['class'] = $asset;
+        } else {
+            $config = $asset;
+        }
+        if (false === array_key_exists('class', $config)) {
+            throw new InvalidConfigException('Object configuration must be an array containing a "class" element.');
+        }
+
+        return $config;
+    }
+
 }
