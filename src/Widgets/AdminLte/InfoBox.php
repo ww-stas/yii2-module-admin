@@ -1,6 +1,6 @@
 <?php
 
-namespace app\widgets\adminLte;
+namespace Diezz\ModuleAdmin\Widgets\AdminLte;
 
 use yii\base\InvalidParamException;
 use yii\base\Widget;
