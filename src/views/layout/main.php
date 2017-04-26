@@ -5,6 +5,7 @@
 
 use Diezz\ModuleAdmin\Widgets\SidebarMenu;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 if (!isset($this->subTitle)) {
     $this->subTitle = '';
@@ -23,6 +24,17 @@ if (!isset($this->subTitle)) {
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<style type="text/css">
+			.sidebar-logout {
+				padding: 10px 20px 10px 20px;
+				font-size: 21px;
+				float: right;
+			}
+
+			.sidebar-logout span {
+				color: #00c0ef;
+			}
+		</style>
     </head>
     <body class="hold-transition <?php echo $this->skin ?>">
     <?php $this->beginBody() ?>
@@ -39,6 +51,9 @@ if (!isset($this->subTitle)) {
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+				<a href="<?php echo Url::toRoute(['/admin/logout']) ?>" class="sidebar-logout" role="button">
+					<span>Logout</span>
+				</a>
             </nav>
         </header>
 
