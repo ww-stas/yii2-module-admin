@@ -26,13 +26,15 @@ if (!isset($this->subTitle)) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 		<style type="text/css">
 			.sidebar-logout {
+				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 				padding: 10px 20px 10px 20px;
-				font-size: 21px;
+				font-size: 19px;
+				font-weight: 600;
 				float: right;
 			}
 
 			.sidebar-logout span {
-				color: #00c0ef;
+				color: #fff;
 			}
 		</style>
     </head>
@@ -51,9 +53,9 @@ if (!isset($this->subTitle)) {
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
-				<a href="<?php echo Url::toRoute(['/admin/logout']) ?>" class="sidebar-logout" role="button">
-					<span>Logout</span>
-				</a>
+                <a href="<?php echo Url::toRoute(['/admin/logout']) ?>" class="sidebar-logout" role="button">
+                    <span>Signing out (<?= Yii::$app->user->identity->email ?>)</span>
+                </a>
             </nav>
         </header>
 
