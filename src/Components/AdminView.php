@@ -78,6 +78,25 @@ class AdminView extends View
      * @var array
      */
     public $extraAssets = [];
+    /**
+     * Link to user profile;
+     *
+     * @var string
+     */
+    public $profileLink = '/profile';
+    /**
+     * Link to sign-out action.
+     *
+     * @var string
+     */
+    public $signOutLink = '/sign-out';
+    /**
+     * This array contain a key->value pairs where key - is link name and value is link
+     * that will be rendered in "user-body" section of menu.
+     *
+     * @var string[]
+     */
+    public $userBody = [];
 
     /**
      * Asset bundle class-name using by default for admin view.
@@ -133,7 +152,10 @@ class AdminView extends View
         $assetClassName = $assetConfig['class'];
         $this->assetManager->bundles[$assetClassName] = $assetConfig;
         if (method_exists($assetClassName, 'register')) {
-            call_user_func([$assetClassName, 'register'], $this);
+            call_user_func([
+                $assetClassName,
+                'register',
+            ], $this);
         }
     }
 

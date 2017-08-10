@@ -1,9 +1,11 @@
 <?php
 
 /* @var $this \Diezz\ModuleAdmin\Components\AdminView */
+
 /* @var $content string */
 
 use Diezz\ModuleAdmin\Widgets\SidebarMenu;
+use Diezz\ModuleAdmin\Widgets\UserMenu;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -24,19 +26,6 @@ if (!isset($this->subTitle)) {
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-		<style type="text/css">
-			.sidebar-logout {
-				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-				padding: 10px 20px 10px 20px;
-				font-size: 19px;
-				font-weight: 600;
-				float: right;
-			}
-
-			.sidebar-logout span {
-				color: #fff;
-			}
-		</style>
     </head>
     <body class="hold-transition <?php echo $this->skin ?>">
     <?php $this->beginBody() ?>
@@ -53,9 +42,16 @@ if (!isset($this->subTitle)) {
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
-                <a href="<?php echo Url::toRoute(['/admin/logout']) ?>" class="sidebar-logout" role="button">
-                    <span>Signing out (<?= Yii::$app->user->identity->email ?>)</span>
-                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <?php echo UserMenu::widget([
+                            'user'        => $this->params['user'],
+                            'profileLink' => $this->profileLink,
+                            'signOutLink' => $this->signOutLink,
+                            'userBody'    => $this->userBody,
+                        ]) ?>
+                    </ul>
+                </div>
             </nav>
         </header>
 
@@ -90,7 +86,8 @@ if (!isset($this->subTitle)) {
             <div class="pull-right hidden-xs">
                 <b>Version</b> <?php echo Yii::$app->version ?>
             </div>
-            <strong>Copyright &copy; <?php echo date('Y') ?> <?php echo $this->companyName ?></strong>
+            <strong>Copyright
+                &copy; <?php echo date('Y') ?> <?php echo $this->companyName ?></strong>
             All rights reserved.
         </footer>
 

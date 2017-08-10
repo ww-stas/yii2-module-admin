@@ -15,6 +15,14 @@ use yii\web\Controller;
 class AdminController extends Controller
 {
     /**
+     * @return void
+     */
+    public function init()
+    {
+        $this->view->params['user'] = \Yii::$app->user->identity;
+    }
+
+    /**
      *
      * @inheritdoc
      */
