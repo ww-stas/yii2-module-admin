@@ -69,6 +69,12 @@ class AdminView extends View
      */
     public $homeUrl = '/admin';
     /**
+     * Home page label for the breadcrumbs widget.
+     *
+     * @var string
+     */
+    public $breadCrumbsHomeLabel = 'Home';
+    /**
      * An array of extra asset. Each asset can be specified one of the following format:
      *
      * - a string thar represent a class name of extra asset;
