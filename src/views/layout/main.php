@@ -70,7 +70,7 @@ if (!isset($this->subTitle)) {
                 <?php echo \yii\widgets\Breadcrumbs::widget([
                     'tag'      => 'ol',
                     'homeLink' => [
-                        'label' => 'Home',
+                        'label' => $this->breadCrumbsHomeLabel,
                         'url'   => $this->homeUrl,
                     ],
                     'links'    => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
