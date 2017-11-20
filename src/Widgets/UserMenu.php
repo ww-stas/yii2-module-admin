@@ -26,11 +26,23 @@ class UserMenu extends Widget
      */
     public $profileLink = '/profile';
     /**
+     * Label to user profile.
+     *
+     * @var string
+     */
+    public $profileLabel = 'Profile';
+    /**
      * Link to sign-out action.
      *
      * @var string
      */
     public $signOutLink = '/sign-out';
+    /**
+     * Label to sign-out action.
+     *
+     * @var string
+     */
+    public $signOutLabel = 'Sign out';
     /**
      * This array contain a key->value pairs where key - is link name and value is link
      * that will be rendered in "user-body" section of menu.
@@ -57,7 +69,9 @@ class UserMenu extends Widget
         return $this->render('user-menu', [
             'user'        => $this->user,
             'profileLink' => $this->profileLink,
+            'profileLabel'=> $this->profileLabel,
             'signOutLink' => $this->signOutLink,
+            'signOutLabel'=> $this->signOutLabel,
             'userBody'    => $this->userBody,
         ]);
     }
