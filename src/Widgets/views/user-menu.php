@@ -4,6 +4,8 @@
 /** @var string $profileLink */
 /** @var string $signOutLink */
 /** @var array $userBody */
+/** @var string $profileLabel */
+/** @var string $signOutLabel */
 
 ?>
 
@@ -44,10 +46,10 @@
         <!-- Menu Footer -->
         <li class="user-footer">
             <div class="pull-left">
-                <a href="<?php echo $profileLink ?>" class="btn btn-default btn-flat"> Profile</a>
+                <a href="<?php echo $profileLink ?>" class="btn btn-default btn-flat"> <?php echo $profileLabel ?></a>
             </div>
             <div class="pull-right">
-                <a href="<?php echo $signOutLink ?>" class="btn btn-default btn-flat"> Sign out </a>
+                <a href="<?php echo $signOutLink ?>" class="btn btn-default btn-flat"> <?php echo $signOutLabel ?> </a>
             </div>
         </li>
     </ul>

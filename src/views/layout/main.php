@@ -47,7 +47,9 @@ if (!isset($this->subTitle)) {
                         <?php echo UserMenu::widget([
                             'user'        => $this->params['user'],
                             'profileLink' => $this->profileLink,
+                            'profileLabel'=> $this->profileLabel,
                             'signOutLink' => $this->signOutLink,
+                            'signOutLabel'=> $this->signOutLabel,
                             'userBody'    => $this->userBody,
                         ]) ?>
                     </ul>
