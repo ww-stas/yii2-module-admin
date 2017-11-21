@@ -6,6 +6,7 @@
 /** @var array $userBody */
 /** @var string $profileLabel */
 /** @var string $signOutLabel */
+/** @var string $dateRegisterLabel */
 
 ?>
 
@@ -24,10 +25,7 @@
             <?php endif; ?>
 
             <p> <?php echo $user->getFullName() ?> - <?php echo $user->getRoleName() ?>
-                <small>Member since
-                    <?php echo $user->getRegisterDate()->format('M') ?>
-                    . <?php echo $user->getRegisterDate()->format('Y') ?>
-                </small>
+                <small><?php echo $dateRegisterLabel ?> <?php echo \Yii::t('app', '{0,date}', $user->getRegisterDate()->getTimestamp()); ?></small>
             </p>
         </li>
         <!-- Menu Body -->

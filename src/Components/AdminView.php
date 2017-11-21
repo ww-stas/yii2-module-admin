@@ -115,6 +115,12 @@ class AdminView extends View
      * @var string[]
      */
     public $userBody = [];
+    /**
+     * Label of register date.
+     *
+     * @var
+     */
+    public $dateRegisterLabel = 'Member since';
 
     /**
      * Asset bundle class-name using by default for admin view.

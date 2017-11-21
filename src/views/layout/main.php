@@ -51,6 +51,7 @@ if (!isset($this->subTitle)) {
                             'signOutLink' => $this->signOutLink,
                             'signOutLabel'=> $this->signOutLabel,
                             'userBody'    => $this->userBody,
+                            'dateRegisterLabel' => $this->dateRegisterLabel,
                         ]) ?>
                     </ul>
                 </div>
