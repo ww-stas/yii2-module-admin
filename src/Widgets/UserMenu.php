@@ -50,6 +50,12 @@ class UserMenu extends Widget
      * @var string[]
      */
     public $userBody = [];
+    /**
+     * Label of register date.
+     *
+     * @var string
+     */
+    public $dateRegisterLabel = 'Member since';
 
     /**
      * Setter for the User model.
@@ -73,6 +79,7 @@ class UserMenu extends Widget
             'signOutLink' => $this->signOutLink,
             'signOutLabel'=> $this->signOutLabel,
             'userBody'    => $this->userBody,
+            'dateRegisterLabel' => $this->dateRegisterLabel
         ]);
     }
 }
