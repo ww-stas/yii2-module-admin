@@ -53,7 +53,7 @@ class UserMenu extends Widget
     /**
      * Label of register date.
      *
-     * @var
+     * @var string
      */
     public $dateRegisterLabel = 'Member since';
 

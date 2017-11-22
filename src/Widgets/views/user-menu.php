@@ -25,7 +25,11 @@
             <?php endif; ?>
 
             <p> <?php echo $user->getFullName() ?> - <?php echo $user->getRoleName() ?>
-                <small><?php echo $dateRegisterLabel ?> <?php echo \Yii::t('app', '{0,date}', $user->getRegisterDate()->getTimestamp()); ?></small>
+                <small>
+                    <?php echo $dateRegisterLabel ?>
+                    <?php echo \Yii::t('app', '{0,date}', $user->getRegisterDate()
+                        ->getTimestamp()); ?>
+                </small>
             </p>
         </li>
         <!-- Menu Body -->

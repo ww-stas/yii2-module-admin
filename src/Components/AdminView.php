@@ -118,7 +118,7 @@ class AdminView extends View
     /**
      * Label of register date.
      *
-     * @var
+     * @var string
      */
     public $dateRegisterLabel = 'Member since';
 
